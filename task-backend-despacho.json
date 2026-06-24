@@ -1,0 +1,23 @@
+{
+    "family": "task-backend-despacho",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "backend-despacho",
+            "image": "279404705013.dkr.ecr.us-east-1.amazonaws.com/innovatech-backend-despacho:latest",
+            "portMappings": [
+                {
+                    "containerPort": 8081,
+                    "hostPort": 8081,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
