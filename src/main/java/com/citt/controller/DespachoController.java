@@ -27,13 +27,18 @@ public class DespachoController {
     @PostMapping
     public ResponseEntity<Despacho> crearDespacho(
             @RequestBody Despacho despacho){
+            
+        // 1. Guardar primero en la BD para que se genere el ID automáticamente
+        Despacho nuevoDespacho = despachoService.saveDespacho(despacho);
+        
+        // 2. Ahora sí usamos el ID generado para armar la respuesta
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{idDespacho}")
-                .buildAndExpand(despacho.getIdDespacho())
+                .buildAndExpand(nuevoDespacho.getIdDespacho())
                 .toUri();
-        despachoService.saveDespacho(despacho);
-        return ResponseEntity.created(location).body(despacho);
+                
+        return ResponseEntity.created(location).body(nuevoDespacho);
     }
 
     @Operation(summary = "Actualizar un despacho existente")
