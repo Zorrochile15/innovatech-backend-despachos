@@ -9,13 +9,13 @@ env:
   AWS_REGION: us-east-1
   
   # ==========================================
-  # CAMBIA ESTAS VARIABLES SEGÚN EL REPOSITORIO
+  # VARIABLES DE BACKEND DESPACHO
   # ==========================================
-  ECR_REPOSITORY: innovatech-backend-ventas    # Nombre de tu repo en ECR
-  ECS_CLUSTER: innovatech-cluster              # El nombre de tu clúster en ECS
-  ECS_SERVICE: backend-ventas-service          # El nombre de tu servicio en ECS
-  ECS_TASK_FAMILY: task-backend-ventas         # El nombre de la Definición de Tarea en AWS
-  CONTAINER_NAME: backend-ventas               # El nombre del contenedor dentro de la tarea
+  ECR_REPOSITORY: innovatech-backend-despacho  # Repositorio correcto en ECR
+  ECS_CLUSTER: innovatech-cluster              # El clúster se mantiene igual
+  ECS_SERVICE: backend-despacho-service        # El servicio que creamos recién
+  ECS_TASK_FAMILY: task-backend-despacho       # La revisión JSON que creamos
+  CONTAINER_NAME: backend-despacho             # El nombre dentro de tu JSON
 
 jobs:
   deploy:
